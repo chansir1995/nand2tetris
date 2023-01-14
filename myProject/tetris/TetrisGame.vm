@@ -1,0 +1,1674 @@
+function TetrisGame.new 0
+push constant 14
+call Memory.alloc 1
+pop pointer 0
+push pointer 0
+call TetrisGame.init 1
+pop temp 0
+call Screen.clearScreen 0
+pop temp 0
+push constant 2
+push constant 6
+call Output.moveCursor 2
+pop temp 0
+push constant 11
+call String.new 1
+push constant 84
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 71
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 109
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 3
+push constant 2
+call Output.moveCursor 2
+pop temp 0
+push constant 19
+call String.new 1
+push constant 119
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 98
+call String.appendChar 2
+push constant 121
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 99
+call String.appendChar 2
+push constant 104
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 11
+push constant 5
+call Output.moveCursor 2
+pop temp 0
+push constant 6
+call String.new 1
+push constant 83
+call String.appendChar 2
+push constant 67
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 82
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 58
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push pointer 0
+call TetrisGame.printScore 1
+pop temp 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push constant 184
+push constant 5
+push constant 326
+push constant 250
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push constant 190
+push constant 10
+push constant 320
+push constant 244
+call Screen.drawRectangle 4
+pop temp 0
+push pointer 0
+return
+function TetrisGame.test 1
+push argument 0
+pop pointer 0
+push constant 0
+pop this 5
+push constant 0
+pop this 6
+push constant 0
+pop this 7
+push constant 0
+pop this 8
+push pointer 0
+push constant 0
+not
+call TetrisGame.printSquare 2
+pop temp 0
+push constant 0
+pop local 0
+label L0
+push local 0
+push constant 10
+lt
+not
+if-goto L1
+push pointer 0
+call TetrisGame.rotate 1
+pop temp 0
+push constant 1000
+call Sys.wait 1
+pop temp 0
+goto L0
+label L1
+push constant 0
+return
+function TetrisGame.newInstance 0
+call TetrisGame.new 0
+pop static 0
+push constant 0
+return
+function TetrisGame.getInstance 0
+push static 0
+return
+function TetrisGame.run 3
+push argument 0
+pop pointer 0
+push constant 32000
+pop local 2
+push pointer 0
+call TetrisGame.create 1
+pop temp 0
+label L2
+push this 0
+not
+not
+if-goto L3
+label L4
+push local 0
+push constant 0
+eq
+push this 0
+not
+and
+not
+if-goto L5
+call Keyboard.keyPressed 0
+pop local 0
+push local 1
+push local 2
+eq
+not
+if-goto L6
+push constant 0
+pop local 1
+push pointer 0
+push constant 0
+call TetrisGame.move 2
+pop temp 0
+goto L7
+label L6
+label L7
+push local 1
+push constant 1
+add
+pop local 1
+goto L4
+label L5
+push local 0
+push constant 130
+eq
+not
+if-goto L8
+push pointer 0
+push constant 1
+call TetrisGame.move 2
+pop temp 0
+push this 4
+push local 1
+add
+pop this 4
+goto L9
+label L8
+push local 0
+push constant 132
+eq
+not
+if-goto L10
+push pointer 0
+push constant 2
+call TetrisGame.move 2
+pop temp 0
+push this 4
+push local 1
+add
+pop this 4
+goto L11
+label L10
+push local 0
+push constant 131
+eq
+not
+if-goto L12
+push pointer 0
+call TetrisGame.rotate 1
+pop temp 0
+push this 4
+push local 1
+add
+pop this 4
+goto L13
+label L12
+push local 0
+push constant 133
+eq
+not
+if-goto L14
+push pointer 0
+push constant 0
+call TetrisGame.move 2
+pop temp 0
+push constant 0
+pop local 1
+push constant 1500
+pop local 2
+push this 4
+push local 1
+add
+pop this 4
+goto L15
+label L14
+push local 0
+push constant 140
+eq
+not
+if-goto L16
+push constant 0
+not
+pop this 0
+goto L17
+label L16
+label L17
+label L15
+label L13
+label L11
+label L9
+label L18
+push local 0
+push constant 0
+eq
+not
+push this 0
+not
+and
+not
+if-goto L19
+call Keyboard.keyPressed 0
+pop local 0
+push local 1
+push local 2
+eq
+not
+if-goto L20
+push constant 0
+pop local 1
+push pointer 0
+push constant 0
+call TetrisGame.move 2
+pop temp 0
+goto L21
+label L20
+label L21
+push local 1
+push constant 1
+add
+pop local 1
+goto L18
+label L19
+push constant 32000
+pop local 2
+goto L2
+label L3
+push this 0
+not
+if-goto L22
+push constant 9
+push constant 5
+call Output.moveCursor 2
+pop temp 0
+push constant 10
+call String.new 1
+push constant 71
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 109
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 118
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 33
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+goto L23
+label L22
+label L23
+push constant 0
+return
+function TetrisGame.init 0
+push argument 0
+pop pointer 0
+push constant 191
+pop this 12
+push constant 11
+pop this 13
+push constant 6
+pop this 9
+push constant 0
+pop this 10
+push constant 22
+call Array.new 1
+pop this 3
+push this 3
+push constant 18
+add
+push constant 0
+not
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 3
+push constant 19
+add
+push constant 0
+not
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 3
+push constant 20
+add
+push constant 0
+not
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 3
+push constant 21
+add
+push constant 0
+not
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+pop this 0
+push constant 0
+pop this 1
+push constant 0
+pop this 4
+push constant 12
+call Array.new 1
+pop this 2
+push this 2
+push constant 0
+add
+push constant 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 2
+push constant 1
+add
+push constant 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 2
+push constant 2
+add
+push constant 4
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 2
+push constant 3
+add
+push constant 8
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 2
+push constant 4
+add
+push constant 16
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 2
+push constant 5
+add
+push constant 32
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 2
+push constant 6
+add
+push constant 64
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 2
+push constant 7
+add
+push constant 128
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 2
+push constant 8
+add
+push constant 256
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 2
+push constant 9
+add
+push constant 512
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 2
+push constant 10
+add
+push constant 1024
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 2
+push constant 11
+add
+push constant 2048
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 7
+call Array.new 1
+pop this 11
+push this 11
+push constant 0
+add
+push constant 4
+call Array.new 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push pointer 0
+push this 11
+push constant 0
+add
+pop pointer 1
+push that 0
+push constant 0
+push constant 1
+push constant 3
+push constant 2
+push constant 0
+call TetrisGame.createType 7
+pop temp 0
+push pointer 0
+push this 11
+push constant 0
+add
+pop pointer 1
+push that 0
+push constant 1
+push constant 6
+push constant 3
+push constant 0
+push constant 0
+call TetrisGame.createType 7
+pop temp 0
+push pointer 0
+push this 11
+push constant 0
+add
+pop pointer 1
+push that 0
+push constant 2
+push constant 1
+push constant 3
+push constant 2
+push constant 0
+call TetrisGame.createType 7
+pop temp 0
+push pointer 0
+push this 11
+push constant 0
+add
+pop pointer 1
+push that 0
+push constant 3
+push constant 6
+push constant 3
+push constant 0
+push constant 0
+call TetrisGame.createType 7
+pop temp 0
+push this 11
+push constant 1
+add
+push constant 4
+call Array.new 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push pointer 0
+push this 11
+push constant 1
+add
+pop pointer 1
+push that 0
+push constant 0
+push constant 3
+push constant 6
+push constant 0
+push constant 0
+call TetrisGame.createType 7
+pop temp 0
+push pointer 0
+push this 11
+push constant 1
+add
+pop pointer 1
+push that 0
+push constant 1
+push constant 2
+push constant 3
+push constant 1
+push constant 0
+call TetrisGame.createType 7
+pop temp 0
+push pointer 0
+push this 11
+push constant 1
+add
+pop pointer 1
+push that 0
+push constant 2
+push constant 3
+push constant 6
+push constant 0
+push constant 0
+call TetrisGame.createType 7
+pop temp 0
+push pointer 0
+push this 11
+push constant 1
+add
+pop pointer 1
+push that 0
+push constant 3
+push constant 2
+push constant 3
+push constant 1
+push constant 0
+call TetrisGame.createType 7
+pop temp 0
+push this 11
+push constant 2
+add
+push constant 4
+call Array.new 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push pointer 0
+push this 11
+push constant 2
+add
+pop pointer 1
+push that 0
+push constant 0
+push constant 1
+push constant 1
+push constant 3
+push constant 0
+call TetrisGame.createType 7
+pop temp 0
+push pointer 0
+push this 11
+push constant 2
+add
+pop pointer 1
+push that 0
+push constant 1
+push constant 7
+push constant 1
+push constant 0
+push constant 0
+call TetrisGame.createType 7
+pop temp 0
+push pointer 0
+push this 11
+push constant 2
+add
+pop pointer 1
+push that 0
+push constant 2
+push constant 3
+push constant 2
+push constant 2
+push constant 0
+call TetrisGame.createType 7
+pop temp 0
+push pointer 0
+push this 11
+push constant 2
+add
+pop pointer 1
+push that 0
+push constant 3
+push constant 4
+push constant 7
+push constant 0
+push constant 0
+call TetrisGame.createType 7
+pop temp 0
+push this 11
+push constant 3
+add
+push constant 4
+call Array.new 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push pointer 0
+push this 11
+push constant 3
+add
+pop pointer 1
+push that 0
+push constant 0
+push constant 2
+push constant 2
+push constant 3
+push constant 0
+call TetrisGame.createType 7
+pop temp 0
+push pointer 0
+push this 11
+push constant 3
+add
+pop pointer 1
+push that 0
+push constant 1
+push constant 1
+push constant 7
+push constant 0
+push constant 0
+call TetrisGame.createType 7
+pop temp 0
+push pointer 0
+push this 11
+push constant 3
+add
+pop pointer 1
+push that 0
+push constant 2
+push constant 3
+push constant 1
+push constant 1
+push constant 0
+call TetrisGame.createType 7
+pop temp 0
+push pointer 0
+push this 11
+push constant 3
+add
+pop pointer 1
+push that 0
+push constant 3
+push constant 7
+push constant 4
+push constant 0
+push constant 0
+call TetrisGame.createType 7
+pop temp 0
+push this 11
+push constant 4
+add
+push constant 4
+call Array.new 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push pointer 0
+push this 11
+push constant 4
+add
+pop pointer 1
+push that 0
+push constant 0
+push constant 1
+push constant 1
+push constant 1
+push constant 1
+call TetrisGame.createType 7
+pop temp 0
+push pointer 0
+push this 11
+push constant 4
+add
+pop pointer 1
+push that 0
+push constant 1
+push constant 15
+push constant 0
+push constant 0
+push constant 0
+call TetrisGame.createType 7
+pop temp 0
+push pointer 0
+push this 11
+push constant 4
+add
+pop pointer 1
+push that 0
+push constant 2
+push constant 1
+push constant 1
+push constant 1
+push constant 1
+call TetrisGame.createType 7
+pop temp 0
+push pointer 0
+push this 11
+push constant 4
+add
+pop pointer 1
+push that 0
+push constant 3
+push constant 15
+push constant 0
+push constant 0
+push constant 0
+call TetrisGame.createType 7
+pop temp 0
+push this 11
+push constant 5
+add
+push constant 4
+call Array.new 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push pointer 0
+push this 11
+push constant 5
+add
+pop pointer 1
+push that 0
+push constant 0
+push constant 3
+push constant 3
+push constant 0
+push constant 0
+call TetrisGame.createType 7
+pop temp 0
+push pointer 0
+push this 11
+push constant 5
+add
+pop pointer 1
+push that 0
+push constant 1
+push constant 3
+push constant 3
+push constant 0
+push constant 0
+call TetrisGame.createType 7
+pop temp 0
+push pointer 0
+push this 11
+push constant 5
+add
+pop pointer 1
+push that 0
+push constant 2
+push constant 3
+push constant 3
+push constant 0
+push constant 0
+call TetrisGame.createType 7
+pop temp 0
+push pointer 0
+push this 11
+push constant 5
+add
+pop pointer 1
+push that 0
+push constant 3
+push constant 3
+push constant 3
+push constant 0
+push constant 0
+call TetrisGame.createType 7
+pop temp 0
+push this 11
+push constant 6
+add
+push constant 4
+call Array.new 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push pointer 0
+push this 11
+push constant 6
+add
+pop pointer 1
+push that 0
+push constant 0
+push constant 2
+push constant 7
+push constant 0
+push constant 0
+call TetrisGame.createType 7
+pop temp 0
+push pointer 0
+push this 11
+push constant 6
+add
+pop pointer 1
+push that 0
+push constant 1
+push constant 1
+push constant 3
+push constant 1
+push constant 0
+call TetrisGame.createType 7
+pop temp 0
+push pointer 0
+push this 11
+push constant 6
+add
+pop pointer 1
+push that 0
+push constant 2
+push constant 7
+push constant 2
+push constant 0
+push constant 0
+call TetrisGame.createType 7
+pop temp 0
+push pointer 0
+push this 11
+push constant 6
+add
+pop pointer 1
+push that 0
+push constant 3
+push constant 2
+push constant 3
+push constant 2
+push constant 0
+call TetrisGame.createType 7
+pop temp 0
+push constant 0
+return
+function TetrisGame.createType 1
+push argument 0
+pop pointer 0
+push constant 4
+call Array.new 1
+pop local 0
+push argument 1
+push argument 2
+add
+push local 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push argument 1
+push argument 2
+add
+pop pointer 1
+push that 0
+pop local 0
+push local 0
+push constant 0
+add
+push argument 3
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 0
+push constant 1
+add
+push argument 4
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 0
+push constant 2
+add
+push argument 5
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 0
+push constant 3
+add
+push argument 6
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+return
+function TetrisGame.rotate 2
+push argument 0
+pop pointer 0
+push this 6
+pop local 0
+push this 6
+push constant 1
+add
+pop this 6
+push this 6
+push constant 4
+eq
+not
+if-goto L24
+push constant 0
+pop this 6
+goto L25
+label L24
+label L25
+push this 6
+pop local 1
+push pointer 0
+call TetrisGame.border 1
+not
+if-goto L26
+push local 0
+pop this 6
+goto L27
+label L26
+push local 0
+pop this 6
+push pointer 0
+push constant 0
+call TetrisGame.printSquare 2
+pop temp 0
+push local 1
+pop this 6
+push pointer 0
+push constant 0
+not
+call TetrisGame.printSquare 2
+pop temp 0
+label L27
+push constant 0
+return
+function TetrisGame.printSquare 5
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+push this 11
+push this 5
+add
+pop pointer 1
+push that 0
+pop local 2
+push local 2
+push this 6
+add
+pop pointer 1
+push that 0
+pop local 3
+label L28
+push local 0
+push constant 4
+lt
+not
+if-goto L29
+push local 3
+push local 0
+add
+pop pointer 1
+push that 0
+pop local 4
+push constant 0
+pop local 1
+label L30
+push local 1
+push constant 4
+lt
+not
+if-goto L31
+push local 4
+push this 2
+push local 1
+add
+pop pointer 1
+push that 0
+and
+push constant 0
+eq
+not
+not
+if-goto L32
+push pointer 0
+push this 7
+push local 0
+add
+push this 8
+push local 1
+add
+push argument 1
+call TetrisGame.drawOne 4
+pop temp 0
+goto L33
+label L32
+label L33
+push local 1
+push constant 1
+add
+pop local 1
+goto L30
+label L31
+push local 0
+push constant 1
+add
+pop local 0
+goto L28
+label L29
+push constant 0
+return
+function TetrisGame.printNextSquare 4
+push argument 0
+pop pointer 0
+push this 7
+pop local 0
+push this 8
+pop local 1
+push this 5
+pop local 2
+push this 6
+pop local 3
+push constant 0
+pop this 7
+push constant 0
+pop this 8
+push this 9
+pop this 5
+push this 10
+pop this 6
+push constant 400
+pop this 12
+push constant 110
+pop this 13
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push constant 400
+push constant 110
+push constant 452
+push constant 162
+call Screen.drawRectangle 4
+pop temp 0
+push pointer 0
+push constant 0
+not
+call TetrisGame.printSquare 2
+pop temp 0
+push constant 191
+pop this 12
+push constant 11
+pop this 13
+push local 0
+pop this 7
+push local 1
+pop this 8
+push local 2
+pop this 5
+push local 3
+pop this 6
+push constant 0
+return
+function TetrisGame.create 0
+push argument 0
+pop pointer 0
+push this 9
+pop this 5
+push this 10
+pop this 6
+push this 4
+push constant 32767
+and
+pop this 4
+push this 4
+push this 4
+push constant 7
+call Math.divide 2
+push constant 7
+call Math.multiply 2
+sub
+pop this 9
+push this 4
+push this 4
+push constant 4
+call Math.divide 2
+push constant 4
+call Math.multiply 2
+sub
+pop this 10
+push pointer 0
+call TetrisGame.printNextSquare 1
+pop temp 0
+push constant 0
+pop this 7
+push constant 4
+pop this 8
+push pointer 0
+call TetrisGame.border 1
+not
+if-goto L34
+push constant 0
+not
+pop this 0
+goto L35
+label L34
+label L35
+push pointer 0
+push constant 0
+not
+call TetrisGame.printSquare 2
+pop temp 0
+push this 4
+push constant 8
+call Math.multiply 2
+push constant 3
+add
+pop this 4
+push constant 0
+return
+function TetrisGame.move 0
+push argument 0
+pop pointer 0
+push argument 1
+push constant 0
+eq
+not
+if-goto L36
+push this 7
+push constant 1
+add
+pop this 7
+push pointer 0
+call TetrisGame.border 1
+not
+if-goto L38
+push this 7
+push constant 1
+sub
+pop this 7
+push pointer 0
+call TetrisGame.getScore 1
+pop temp 0
+push pointer 0
+call TetrisGame.create 1
+pop temp 0
+goto L39
+label L38
+push this 7
+push constant 1
+sub
+pop this 7
+push pointer 0
+push constant 0
+call TetrisGame.printSquare 2
+pop temp 0
+push this 7
+push constant 1
+add
+pop this 7
+push pointer 0
+push constant 0
+not
+call TetrisGame.printSquare 2
+pop temp 0
+label L39
+goto L37
+label L36
+push argument 1
+push constant 1
+eq
+not
+if-goto L40
+push this 8
+push constant 1
+sub
+pop this 8
+push pointer 0
+call TetrisGame.border 1
+not
+if-goto L42
+push this 8
+push constant 1
+add
+pop this 8
+goto L43
+label L42
+push this 8
+push constant 1
+add
+pop this 8
+push pointer 0
+push constant 0
+call TetrisGame.printSquare 2
+pop temp 0
+push this 8
+push constant 1
+sub
+pop this 8
+push pointer 0
+push constant 0
+not
+call TetrisGame.printSquare 2
+pop temp 0
+label L43
+goto L41
+label L40
+push this 8
+push constant 1
+add
+pop this 8
+push pointer 0
+call TetrisGame.border 1
+not
+if-goto L44
+push this 8
+push constant 1
+sub
+pop this 8
+goto L45
+label L44
+push this 8
+push constant 1
+sub
+pop this 8
+push pointer 0
+push constant 0
+call TetrisGame.printSquare 2
+pop temp 0
+push this 8
+push constant 1
+add
+pop this 8
+push pointer 0
+push constant 0
+not
+call TetrisGame.printSquare 2
+pop temp 0
+label L45
+label L41
+label L37
+push constant 0
+return
+function TetrisGame.getScore 6
+push argument 0
+pop pointer 0
+push this 7
+pop local 0
+push this 7
+push constant 4
+add
+push constant 18
+call Math.min 2
+pop local 1
+push this 11
+push this 5
+add
+pop pointer 1
+push that 0
+pop local 3
+push local 3
+push this 6
+add
+pop pointer 1
+push that 0
+pop local 4
+push constant 0
+pop local 2
+label L46
+push local 0
+push local 1
+lt
+not
+if-goto L47
+push this 3
+push local 0
+add
+push this 3
+push local 0
+add
+pop pointer 1
+push that 0
+push local 4
+push local 0
+push this 7
+sub
+add
+pop pointer 1
+push that 0
+push this 2
+push this 8
+add
+pop pointer 1
+push that 0
+call Math.multiply 2
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 3
+push local 0
+add
+pop pointer 1
+push that 0
+push constant 1023
+eq
+not
+if-goto L48
+push local 2
+push constant 1
+add
+pop local 2
+push pointer 0
+push local 0
+call TetrisGame.clear 2
+pop temp 0
+goto L49
+label L48
+label L49
+push local 0
+push constant 1
+add
+pop local 0
+goto L46
+label L47
+push this 1
+push local 2
+push local 2
+call Math.multiply 2
+push constant 100
+call Math.multiply 2
+add
+pop this 1
+push pointer 0
+call TetrisGame.printScore 1
+pop temp 0
+push pointer 0
+call TetrisGame.show 1
+pop temp 0
+push constant 0
+return
+function TetrisGame.clear 2
+push argument 0
+pop pointer 0
+push argument 1
+pop local 0
+label L50
+push local 0
+push constant 0
+gt
+not
+if-goto L51
+push local 0
+push constant 1
+sub
+pop local 1
+push this 3
+push local 0
+add
+push this 3
+push local 1
+add
+pop pointer 1
+push that 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 1
+pop local 0
+goto L50
+label L51
+push this 3
+push constant 0
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+return
+function TetrisGame.drawOne 2
+push argument 0
+pop pointer 0
+push argument 2
+push constant 13
+call Math.multiply 2
+push this 12
+add
+pop local 0
+push argument 1
+push constant 13
+call Math.multiply 2
+push this 13
+add
+pop local 1
+push argument 3
+call Screen.setColor 1
+pop temp 0
+push local 0
+push local 1
+push local 0
+push constant 11
+add
+push local 1
+push constant 11
+add
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+return
+function TetrisGame.border 4
+push argument 0
+pop pointer 0
+push this 8
+push constant 0
+lt
+not
+if-goto L52
+push constant 0
+not
+return
+goto L53
+label L52
+label L53
+push constant 0
+pop local 0
+push this 11
+push this 5
+add
+pop pointer 1
+push that 0
+pop local 1
+push local 1
+push this 6
+add
+pop pointer 1
+push that 0
+pop local 2
+label L54
+push local 0
+push constant 4
+lt
+not
+if-goto L55
+push local 2
+push local 0
+add
+pop pointer 1
+push that 0
+push this 2
+push this 8
+add
+pop pointer 1
+push that 0
+call Math.multiply 2
+pop local 3
+push local 3
+push constant 1024
+lt
+not
+push local 3
+push this 3
+push this 7
+push local 0
+add
+add
+pop pointer 1
+push that 0
+and
+push constant 0
+eq
+not
+or
+not
+if-goto L56
+push constant 0
+not
+return
+goto L57
+label L56
+label L57
+push local 0
+push constant 1
+add
+pop local 0
+goto L54
+label L55
+push constant 0
+return
+function TetrisGame.show 4
+push argument 0
+pop pointer 0
+push constant 0
+pop local 2
+label L58
+push local 2
+push constant 18
+lt
+not
+if-goto L59
+push constant 0
+pop local 3
+push this 3
+push local 2
+add
+pop pointer 1
+push that 0
+pop local 0
+push constant 1
+pop local 1
+label L60
+push local 3
+push constant 10
+lt
+not
+if-goto L61
+push pointer 0
+push local 2
+push local 3
+push local 0
+push local 1
+and
+call TetrisGame.drawOne 4
+pop temp 0
+push local 3
+push constant 1
+add
+pop local 3
+push this 2
+push local 3
+add
+pop pointer 1
+push that 0
+pop local 1
+goto L60
+label L61
+push local 2
+push constant 1
+add
+pop local 2
+goto L58
+label L59
+push constant 0
+return
+function TetrisGame.printScore 0
+push argument 0
+pop pointer 0
+push constant 11
+push constant 11
+call Output.moveCursor 2
+pop temp 0
+push this 1
+call Output.printInt 1
+pop temp 0
+push constant 0
+return
